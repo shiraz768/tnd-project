@@ -22,7 +22,6 @@ const Login = () => {
                 type="email"
                 className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1A2942]"
                 id="email"
-                name="email"
                 required
                 placeholder="Enter your email"
               />
@@ -39,7 +38,6 @@ const Login = () => {
                 type="password"
                 className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1A2942]"
                 id="password"
-                name="password"
                 required
                 placeholder="Enter your password"
               />
@@ -50,7 +48,7 @@ const Login = () => {
                 type="checkbox"
                 className="h-4 w-4 text-[#1A2942] border-gray-300 rounded"
                 id="rememberMe"
-                name="rememberMe"
+                
               />
               <label
                 htmlFor="rememberMe"
