@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TopNavbar from "../../components/DashboardComponents/TopNavbar";
 import LeftSidebar from "../../components/DashboardComponents/LeftSidebar";
 
@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
        <div className="flex min-h-screen">
-      <LeftSidebar isSidebarOpen={isSidebarOpen} />
+      <LeftSidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
       <div className="flex-grow">
         <TopNavbar 
           toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}

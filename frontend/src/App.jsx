@@ -1,11 +1,10 @@
-import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import UI from './pages/UI'
 import Login from './pages/Dashboard/Login'
-import TopNavbar from './components/DashboardComponents/TopNavbar'
 import Home from './pages/Dashboard/Home'
 
 const App = () => {
+
   return (
     <>
         <BrowserRouter>

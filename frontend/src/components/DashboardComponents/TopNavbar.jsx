@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdOutlineLightMode, MdOutlineDarkMode } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 
@@ -9,40 +9,49 @@ const TopNavbar = ({ toggleSidebar, isSidebarOpen }) => {
     setTheme(!theme);
   };
 
+  const changeMode = () => {
+    if (theme) {
+      document.body.style.background = "#fff";
+      document.body.classList.remove("dark");
+    } else {
+      document.body.style.background = "#333";
+      document.body.classList.add("dark");
+    }
+  };
+
+  useEffect(() => {
+    changeMode();
+  }, [theme]);
+
   return (
-    <nav className="w-full flex p-3 justify-between shadow-md bg-white transition-colors duration-300">
-     
-      <div 
-        id="toggle" 
+    <nav className="w-full flex p-3 justify-between shadow-md transition-colors duration-300" >
+      <div
+        id="toggle"
         className="p-2 cursor-pointer transition-transform duration-300 hover:scale-110"
         onClick={toggleSidebar}
       >
-        <RxHamburgerMenu 
-          size={25} 
-          className={`transform hover:text-[#1c2d48] transition-transform duration-300 ${
-            isSidebarOpen ? 'rotate-90' : 'rotate-0'
-          }`}
+        <RxHamburgerMenu
+          size={25}
+          className={`${theme ? "transform hover:text-[#1c2d48]  text-black transition-transform duration-300" : "text-white"} ${isSidebarOpen ? "rotate-0" : "rotate-90"}`}
         />
-      </div>
 
-     
-      <div 
-        className="p-2 cursor-pointer relative w-8 h-8"
-        onClick={handleToggle}
-      >
+      </div>
+<div className={`${theme? "text-3xl text-center font-bold" : "text-3xl text-white font-bold"}`}>
+  TND Dashboard 
+</div>
+      <div className="p-2 cursor-pointer relative w-8 h-8" onClick={handleToggle}>
         <div className="relative w-full h-full">
-          <MdOutlineLightMode
-            size={25}
-            className={`absolute transform hover:text-[#1c2d48] transition-all duration-300 ${
-              theme ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-180'
-            }`}
-          />
-          <MdOutlineDarkMode
-            size={25}
-            className={`absolute transform hover:text-[#1c2d48] transition-all duration-300 ${
-              !theme ? 'opacity-100 rotate-0' : 'opacity-0 rotate-180'
-            }`}
-          />
+          {theme ? (
+            <MdOutlineLightMode
+              size={25}
+              className={`${theme ? "absolute transform hover:text-sky-800  transition-all duration-300" : "text-black "} `}
+            />
+          ) : (
+            <MdOutlineDarkMode
+              size={25}
+              className={`${theme ? "absolute transform hover:text-[#1c2d48] transition-all duration-300" : "text-white hover:text-sky-800"}  `}
+            />
+          )}
         </div>
       </div>
     </nav>
